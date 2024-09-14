@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-TW" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <title>Happy Birthday</title>
+    <style>
+      :root {
+          --background-color: #1b1d20;
+          --slide-width: 344px;
+          --slide-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
+          --slide-thumb-height: 3px;
+          --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
+          --slide-thumb-active-color: rgba(255, 255, 255, 0.9);
+      }
+
+      body {
+          background-color: var(--background-color);
+      }
+
+      img {
+          display: block;
+          max-width: 100%;
+      }
+
+      .slide {
+          box-shadow: var(--slide-width);
+          display: grid;
+          margin: 20px auto;
+          max-width: var(--slide-width);
+      }
+
+      .slide-items {
+          border-radius: 5px;
+          grid-area: 1/1;
+          overflow: hidden;
+          position: relative;
+      }
+
+      .slide-items>* {
+          opacity: 0;
+          pointer-events: none;
+          position: absolute;
+          top: 0;
+      }
+
+      .slide-items .active {
+          opacity: 1;
+          pointer-events: initial;
+          position: relative;
+      }
+
+      .slide-nav {
+          display: grid;
+          grid-area: 1/1;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto 1fr;
+          z-index: 1;
+      }
+
+      .slide-thumbs {
+          display: flex;
+          grid-column: 1 / 3;
+      }
+
+      .slide-thumb-item {
+          background-color: var(--slide-thumb-default-color);
+          border-radius: 3px;
+          display: block;
+          flex: 1;
+          height: var(--slide-thumb-height);
+          margin: 5px;
+          overflow: hidden;
+      }
+
+      .slide-thumb-item.active::after {
+          animation: thumb 5s forwards linear;
+          background-color: var(--slide-thumb-active-color);
+          border-radius: 3px;
+          content: '';
+          display: block;
+          height: inherit;
+          transform: translateX(-100%);
+      }
+
+      .slide-next,
+      .slide-prev {
+          opacity: 0;
+          -webkit-appearance: none;
+          -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      @keyframes thumb {
+          to {
+              transform: initial;
+          }
+      }
+    </style>
+  </head>
+  <body class="">
+    <div class="container text-center">
+      <div data-slide="slide" class="slide">
+        <div class="slide-items">
+          <img src="img01.jpg" alt="Cat 1">
+          <img src="img02.png" alt="Cat 2">
+          <img src="img03.jpg" alt="Cat 3">
+          <img src="img04.png" alt="Cat 4">
+          <img src="img05.jpg" alt="Cat 4">
+          <img src="img06.jpg" alt="Cat 4">
+          <img src="img07.png" alt="Cat 4">
+        </div>
+        <nav class="slide-nav">
+          <div class="slide-thumbs"></div>
+          <button class="slide-prev">Previous</button>
+          <button class="slide-next">Next</button>
+        </nav>
+      </div>
+
+      <!-- <div id="carouselExampleIndicators" class="carousel slide carousel-fade">
+        <div class="carousel-indicators sticky-sm-top">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img01.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img02.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img03.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+
+      <!-- <div class="row opacity-50">
+        <div class="col">
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar bg-light" style="width: 50%"></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 0%"></div>
+          </div>
+        </div>
+      </div> -->
+
+      <script>
+        class SlideStories {
+            /** @param {string} id */
+            constructor(id) {
+                this.slide = document.querySelector(`[data-slide=${id}]`)
+                this.active = 0
+                this.init()
+            }
+
+            /** @param {Number} index */
+            activeSlide(index) {
+                this.active = index
+                this.items.forEach((item) => item.classList.remove('active'))
+                this.items[index].classList.add('active')
+                this.thumbItems.forEach((item) => item.classList.remove('active'))
+                this.thumbItems[index].classList.add('active')
+                this.autoSlide()
+            }
+
+            next() {
+                if (this.active < this.items.length - 1) {
+                    this.activeSlide(this.active + 1)
+                } else {
+                    this.activeSlide(0)
+                }
+            }
+
+            prev() {
+                if (this.active > 0) {
+                    this.activeSlide(this.active - 1)
+                } else {
+                    this.activeSlide(this.items.length - 1)
+                }
+            }
+
+            addNavigation() {
+                const nextBtn = this.slide.querySelector('.slide-next')
+                const prevBtn = this.slide.querySelector('.slide-prev')
+                nextBtn.addEventListener('click', this.next)
+                prevBtn.addEventListener('click', this.prev)
+            }
+
+            addThumbItems() {
+                this.items.forEach(() => (this.thumb.innerHTML += `<span class="slide-thumb-item"></span>`))
+                this.thumbItems = Array.from(this.thumb.children)
+            }
+
+            autoSlide() {
+                clearTimeout(this.timeout)
+                this.timeout = setTimeout(this.next, 5000)
+            }
+
+            init() {
+                this.next = this.next.bind(this)
+                this.prev = this.prev.bind(this)
+                this.items = this.slide.querySelectorAll('.slide-items > *')
+                this.thumb = this.slide.querySelector('.slide-thumbs')
+                this.addThumbItems()
+                this.activeSlide(0)
+                this.addNavigation()
+            }
+        }
+
+        new SlideStories('slide')
+      </script>
+    </div>
+  </body>
+</html>
