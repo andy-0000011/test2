@@ -2,7 +2,7 @@
 <html lang="zh-TW" data-bs-theme="dark">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
     <title>Happy Birthday</title>
@@ -10,10 +10,10 @@
       html, body {
         touch-action: manipulation;
       }
-      
+
       :root {
           --background-color: #1b1d20;
-          --slide-width: 344px;
+          --slide-width: 100%;
           --slide-shadow: 0 4px 20px 2px rgba(0, 0, 0, 0.4);
           --slide-thumb-height: 3px;
           --slide-thumb-default-color: rgba(0, 0, 0, 0.4);
@@ -26,13 +26,13 @@
 
       img {
           display: block;
-          max-width: 100%;
+          width: 100%;
       }
 
       .slide {
           box-shadow: var(--slide-width);
           display: grid;
-          margin: 20px auto;
+          margin: 0px auto;
           max-width: var(--slide-width);
       }
 
@@ -103,17 +103,17 @@
       }
     </style>
   </head>
-  <body class="">
-    <div class="container text-center">
+  <body>
+    <div class="container p-0">
       <div data-slide="slide" class="slide">
         <div class="slide-items">
-          <img src="img01.jpg" alt="Cat 1">
-          <img src="img02.png" alt="Cat 2">
-          <img src="img03.jpg" alt="Cat 3">
-          <img src="img04.png" alt="Cat 4">
-          <img src="img05.jpg" alt="Cat 4">
-          <img src="img06.jpg" alt="Cat 4">
-          <img src="img07.png" alt="Cat 4">
+          <img src="img01.jpg" alt="">
+          <img src="img02.png" alt="">
+          <img src="img03.jpg" alt="">
+          <img src="img04.png" alt="">
+          <img src="img05.jpg" alt="">
+          <img src="img06.jpg" alt="">
+          <img src="img07.png" alt="">
         </div>
         <nav class="slide-nav">
           <div class="slide-thumbs"></div>
